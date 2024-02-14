@@ -41,17 +41,17 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnFacturar = new System.Windows.Forms.Button();
             this.grbAPagar = new System.Windows.Forms.GroupBox();
-            this.btnTerminar = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblSubTot = new System.Windows.Forms.Label();
-            this.lblVrIVA = new System.Windows.Forms.Label();
-            this.lblTotAPag = new System.Windows.Forms.Label();
-            this.lblVrDscto = new System.Windows.Forms.Label();
             this.lblPorcDscto = new System.Windows.Forms.Label();
+            this.lblVrDscto = new System.Windows.Forms.Label();
+            this.lblTotAPag = new System.Windows.Forms.Label();
+            this.lblVrIVA = new System.Windows.Forms.Label();
+            this.lblSubTot = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnTerminar = new System.Windows.Forms.Button();
             this.grbAPagar.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +61,7 @@
             this.Title.BackColor = System.Drawing.SystemColors.Control;
             this.Title.CausesValidation = false;
             this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(50, 20);
+            this.Title.Location = new System.Drawing.Point(50, 21);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(285, 31);
             this.Title.TabIndex = 0;
@@ -81,7 +81,7 @@
             // 
             this.labelVA.AutoSize = true;
             this.labelVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelVA.Location = new System.Drawing.Point(143, 176);
+            this.labelVA.Location = new System.Drawing.Point(142, 177);
             this.labelVA.Name = "labelVA";
             this.labelVA.Size = new System.Drawing.Size(58, 20);
             this.labelVA.TabIndex = 2;
@@ -145,7 +145,7 @@
             // txtCant
             // 
             this.txtCant.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtCant.Location = new System.Drawing.Point(214, 145);
+            this.txtCant.Location = new System.Drawing.Point(214, 143);
             this.txtCant.Name = "txtCant";
             this.txtCant.Size = new System.Drawing.Size(121, 20);
             this.txtCant.TabIndex = 8;
@@ -153,7 +153,7 @@
             // txtIVA
             // 
             this.txtIVA.BackColor = System.Drawing.SystemColors.Menu;
-            this.txtIVA.Location = new System.Drawing.Point(214, 178);
+            this.txtIVA.Location = new System.Drawing.Point(214, 177);
             this.txtIVA.Name = "txtIVA";
             this.txtIVA.Size = new System.Drawing.Size(121, 20);
             this.txtIVA.TabIndex = 9;
@@ -168,6 +168,7 @@
             this.btnLimpiar.TabIndex = 10;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnFacturar
             // 
@@ -179,10 +180,11 @@
             this.btnFacturar.TabIndex = 11;
             this.btnFacturar.Text = "Facturar";
             this.btnFacturar.UseVisualStyleBackColor = false;
+            this.btnFacturar.Click += new System.EventHandler(this.btnFacturar_Click);
             // 
             // grbAPagar
             // 
-            this.grbAPagar.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.grbAPagar.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.grbAPagar.Controls.Add(this.lblPorcDscto);
             this.grbAPagar.Controls.Add(this.lblVrDscto);
             this.grbAPagar.Controls.Add(this.lblTotAPag);
@@ -193,7 +195,7 @@
             this.grbAPagar.Controls.Add(this.label4);
             this.grbAPagar.Controls.Add(this.label3);
             this.grbAPagar.Controls.Add(this.label2);
-            this.grbAPagar.Location = new System.Drawing.Point(21, 280);
+            this.grbAPagar.Location = new System.Drawing.Point(21, 281);
             this.grbAPagar.Name = "grbAPagar";
             this.grbAPagar.Size = new System.Drawing.Size(340, 186);
             this.grbAPagar.TabIndex = 12;
@@ -201,60 +203,50 @@
             this.grbAPagar.Text = "A Pagar";
             this.grbAPagar.Visible = false;
             // 
-            // btnTerminar
+            // lblPorcDscto
             // 
-            this.btnTerminar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnTerminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTerminar.Location = new System.Drawing.Point(219, 489);
-            this.btnTerminar.Name = "btnTerminar";
-            this.btnTerminar.Size = new System.Drawing.Size(116, 23);
-            this.btnTerminar.TabIndex = 13;
-            this.btnTerminar.Text = "Terminar";
-            this.btnTerminar.UseVisualStyleBackColor = false;
+            this.lblPorcDscto.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblPorcDscto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPorcDscto.Location = new System.Drawing.Point(176, 60);
+            this.lblPorcDscto.Name = "lblPorcDscto";
+            this.lblPorcDscto.Size = new System.Drawing.Size(138, 16);
+            this.lblPorcDscto.TabIndex = 14;
             // 
-            // label2
+            // lblVrDscto
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.SystemColors.Control;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(22, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "               Sub Total:";
+            this.lblVrDscto.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblVrDscto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVrDscto.Location = new System.Drawing.Point(176, 90);
+            this.lblVrDscto.Name = "lblVrDscto";
+            this.lblVrDscto.Size = new System.Drawing.Size(138, 16);
+            this.lblVrDscto.TabIndex = 13;
             // 
-            // label3
+            // lblTotAPag
             // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.SystemColors.Control;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 59);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 16);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "            Porc. Dscto:";
+            this.lblTotAPag.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblTotAPag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotAPag.Location = new System.Drawing.Point(176, 153);
+            this.lblTotAPag.Name = "lblTotAPag";
+            this.lblTotAPag.Size = new System.Drawing.Size(138, 16);
+            this.lblTotAPag.TabIndex = 12;
             // 
-            // label4
+            // lblVrIVA
             // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(20, 89);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 16);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "            Valor Dscto:";
+            this.lblVrIVA.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblVrIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVrIVA.Location = new System.Drawing.Point(176, 121);
+            this.lblVrIVA.Name = "lblVrIVA";
+            this.lblVrIVA.Size = new System.Drawing.Size(138, 16);
+            this.lblVrIVA.TabIndex = 11;
             // 
-            // label5
+            // lblSubTot
             // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.SystemColors.Control;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 121);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(138, 16);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "                    Vr. IVA:";
+            this.lblSubTot.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.lblSubTot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSubTot.Location = new System.Drawing.Point(176, 26);
+            this.lblSubTot.Name = "lblSubTot";
+            this.lblSubTot.Size = new System.Drawing.Size(138, 16);
+            this.lblSubTot.TabIndex = 6;
             // 
             // label7
             // 
@@ -267,50 +259,61 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "        Total A Pagar:";
             // 
-            // lblSubTot
+            // label5
             // 
-            this.lblSubTot.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblSubTot.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubTot.Location = new System.Drawing.Point(176, 26);
-            this.lblSubTot.Name = "lblSubTot";
-            this.lblSubTot.Size = new System.Drawing.Size(138, 16);
-            this.lblSubTot.TabIndex = 6;
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.Control;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(22, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(138, 16);
+            this.label5.TabIndex = 3;
+            this.label5.Text = "                    Vr. IVA:";
             // 
-            // lblVrIVA
+            // label4
             // 
-            this.lblVrIVA.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblVrIVA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVrIVA.Location = new System.Drawing.Point(176, 121);
-            this.lblVrIVA.Name = "lblVrIVA";
-            this.lblVrIVA.Size = new System.Drawing.Size(138, 16);
-            this.lblVrIVA.TabIndex = 11;
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.Control;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(20, 90);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(140, 16);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "            Valor Dscto:";
             // 
-            // lblTotAPag
+            // label3
             // 
-            this.lblTotAPag.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblTotAPag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotAPag.Location = new System.Drawing.Point(176, 153);
-            this.lblTotAPag.Name = "lblTotAPag";
-            this.lblTotAPag.Size = new System.Drawing.Size(138, 16);
-            this.lblTotAPag.TabIndex = 12;
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.Control;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(22, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 16);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "            Porc. Dscto:";
             // 
-            // lblVrDscto
+            // label2
             // 
-            this.lblVrDscto.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblVrDscto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVrDscto.Location = new System.Drawing.Point(176, 89);
-            this.lblVrDscto.Name = "lblVrDscto";
-            this.lblVrDscto.Size = new System.Drawing.Size(138, 16);
-            this.lblVrDscto.TabIndex = 13;
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.Control;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(22, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "               Sub Total:";
             // 
-            // lblPorcDscto
+            // btnTerminar
             // 
-            this.lblPorcDscto.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.lblPorcDscto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPorcDscto.Location = new System.Drawing.Point(176, 59);
-            this.lblPorcDscto.Name = "lblPorcDscto";
-            this.lblPorcDscto.Size = new System.Drawing.Size(138, 16);
-            this.lblPorcDscto.TabIndex = 14;
+            this.btnTerminar.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnTerminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTerminar.Location = new System.Drawing.Point(219, 489);
+            this.btnTerminar.Name = "btnTerminar";
+            this.btnTerminar.Size = new System.Drawing.Size(116, 23);
+            this.btnTerminar.TabIndex = 13;
+            this.btnTerminar.Text = "Terminar";
+            this.btnTerminar.UseVisualStyleBackColor = false;
+            this.btnTerminar.Click += new System.EventHandler(this.btnTerminar_Click);
             // 
             // frmPedido
             // 
@@ -318,7 +321,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(390, 534);
-            this.ControlBox = false;
             this.Controls.Add(this.btnTerminar);
             this.Controls.Add(this.grbAPagar);
             this.Controls.Add(this.btnFacturar);
@@ -333,6 +335,7 @@
             this.Controls.Add(this.labelVA);
             this.Controls.Add(this.productoText);
             this.Controls.Add(this.Title);
+            this.ForeColor = System.Drawing.SystemColors.MenuText;
             this.Name = "frmPedido";
             this.Text = "frmPedido";
             this.grbAPagar.ResumeLayout(false);

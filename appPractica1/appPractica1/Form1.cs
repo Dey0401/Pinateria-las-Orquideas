@@ -17,5 +17,19 @@ namespace appPractica1
             InitializeComponent();
         }
 
+        private void btnTerminar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFacturar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
