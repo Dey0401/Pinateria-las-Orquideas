@@ -11,9 +11,19 @@ namespace libRnDescVta
     {
         #region Atributos   
         private int intCod;
-        private int intCant;
+        private int intCantProd;
         private float fltDesc;
         private string strError;
+        #endregion
+
+        #region Constructor's
+        public clsRnDescVta()
+        {
+            this.intCod = 0;
+            this.intCantProd = 0;
+            this.fltDesc = 0;
+            this.strError = string.Empty;
+        }
         #endregion
 
         #region Propiedades   
@@ -21,7 +31,7 @@ namespace libRnDescVta
         { set { intCod = value; } }
 
         public int Cantidad
-        { set { intCant = value; } }
+        { set { intCantProd = value; } }
 
         public string Error 
         { get { return strError; } }
@@ -33,8 +43,14 @@ namespace libRnDescVta
         #region Metodos Privados
         private bool Validar() 
         {
-            if (intCant<=0)
+            if (intCantProd<=0)
             {
+                strError = "La cantidad no es valida debe ser mayor a cero";
+                return false;
+            }
+            if (intCod <= 0)
+            {
+                strError = "El código no es valido debe ser mayor a cero";
                 return false;
             }
             return true;
@@ -46,11 +62,10 @@ namespace libRnDescVta
             try
             {
                 string strPath = AppDomain.CurrentDomain.BaseDirectory + @"Descuentos.txt";
-                int intCant = 0;
+                int intCant = 0, intCodLeido, intCantLeido;
+                float fltPorcLeido;
                 string strLinea;
                 string[] vectorLinea;
-                string strCodigo; //atributo propio que toma
-                float fltNota; //atributo propio que toma
                 intCant = File.ReadAllLines(strPath).Length;
                 if (intCant <= 0)
                     return true;
@@ -58,13 +73,12 @@ namespace libRnDescVta
                 while ((strLinea = Archivo.ReadLine()) != null)      //Leer línea * línea el archivo
                 {
                     vectorLinea = strLinea.Split(':');
-                    strCodigo = vectorLinea[0];          //Tipo de estudiante (Programa)
-                    fltNota = Convert.ToSingle(vectorLinea[1]);  //Promedio mínimo de nota
-                                                                 //if (strCodigo == _intTipoEst.ToString() && _fltProm >= fltNota)
+                    intCodLeido = Convert.ToInt32(vectorLinea[0]);    //Codigo de producto
+                    intCantLeido = Convert.ToInt32(vectorLinea[1]);   //Cantidad minima
+                    fltPorcLeido = Convert.ToSingle(vectorLinea[2]);  //Promedio de descuento
+                    if (intCod == intCodLeido && intCantProd > intCantLeido)
                     {
-                        //_fltValCredito = Convert.ToSingle(vectorLinea[2]); //Valor crédito
-                        //_intCredit = Convert.ToInt16(vectorLinea[3]); //Cantidad Créditos
-                        //_fltDesc = Convert.ToSingle(vectorLinea[4]); //Porcentaje de Dscto
+                        fltDesc = fltPorcLeido; 
                         break;
                     }
                 }
@@ -83,9 +97,8 @@ namespace libRnDescVta
         #region Metodos Publicos
         public bool hallarDscto()
         {
-            Validar();
-            leerArchivo();
-            return false;
+            if(!Validar()) return false;
+            return leerArchivo();
         }
         #endregion
     }
