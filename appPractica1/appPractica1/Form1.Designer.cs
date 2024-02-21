@@ -117,10 +117,6 @@
             this.cmbProducto.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.cmbProducto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProducto.FormattingEnabled = true;
-            this.cmbProducto.Items.AddRange(new object[] {
-            "Producto 1",
-            "Producto 2",
-            "Otro Producto"});
             this.cmbProducto.Location = new System.Drawing.Point(214, 77);
             this.cmbProducto.Name = "cmbProducto";
             this.cmbProducto.Size = new System.Drawing.Size(121, 21);
@@ -338,6 +334,7 @@
             this.ForeColor = System.Drawing.SystemColors.MenuText;
             this.Name = "frmPedido";
             this.Text = "frmPedido";
+            this.Load += new System.EventHandler(this.frmPedido_Load);
             this.grbAPagar.ResumeLayout(false);
             this.grbAPagar.PerformLayout();
             this.ResumeLayout(false);
