@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using libOpeDescVta;
 
 namespace appPractica1
 {
@@ -15,7 +16,6 @@ namespace appPractica1
         public frmPedido()
         {
             InitializeComponent();
-
         }
 
         #region Metodos propios
@@ -43,10 +43,8 @@ namespace appPractica1
 
         }
         #endregion
-        private void frmPedido_Load(object sender, EventArgs e)
-        {
-            llenarCombo();
-        }
+
+        #region Metodos de los botones
         private void btnTerminar_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -60,7 +58,71 @@ namespace appPractica1
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
-            Mensaje("");
+            //Declaración de variables
+            int intcod, intcant;
+            float fltvrd, fltpiva;
+            try
+            {
+                //Capturamos el dato
+            intcod = this.cmbProducto.SelectedIndex;
+          
+            switch (intcod)
+            {
+                case 0:
+                    Mensaje("prosucto no valido");
+                    this.cmbProducto.Focus();
+                    return;
+                case 1:
+                    intcod = 110;
+                    break;
+                case 2:
+                    intcod = 215;
+                    break;
+                default:
+                    intcod = 999;
+                    break;
+            }
+                fltvrd = Convert.ToSingle(this.txtVrDocena.Text);
+                intcant = Convert.ToInt32(txtCant.Text);
+                fltpiva = Convert.ToSingle(this.txtIVA.Text);
+                //crear objeto OPE
+                clsOpeDescVta oO = new clsOpeDescVta();
+                //Enviar info al objeto
+                oO.Codigo = intcod;
+                oO.vrDocena = fltvrd;
+                oO.Cantidad = intcant;
+                oO.porcIVA = fltpiva;
+
+                //Invocar metodo y Tto del error
+                if (! oO.Facturar())
+                {
+                    Mensaje(oO.Error);
+                    oO = null; //Garbage Collector
+                    return;
+                }
+                //Recuperación de la info
+                this.lblSubTot.Text = Convert.ToString(oO.subTotal);
+                this.lblPorcDscto.Text = oO.porcDscto.ToString();
+                this.lblVrDscto.Text = oO.vrDscto.ToString();
+                this.lblVrIVA.Text = oO.vrIva.ToString();
+                this.lblTotAPag.Text = oO.totalAPagar.ToString();
+                //Mostrar group box
+                this.grbAPagar.Visible = true;
+                oO = null; //Garbage Collector
+            }
+
+            catch (Exception ex)
+            {
+                Mensaje(ex.Message);   
+                throw;
+            }
+
+
+        }
+        #endregion
+        private void frmPedido_Load(object sender, EventArgs e)
+        {
+            llenarCombo();
         }
 
 
